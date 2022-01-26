@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="mapbox/mapbox-gl.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <style>
+        #map {
+            width: 1311px;
+            height: 924px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+            <nav id="menu"></nav>
+              <div id="distance" class="distance-container"></div>
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="./mapbox/mapbox-gl.js"></script>
+        <script src="data/Afersimplify_0.js"></script>
+<script src="./mapbox/style.js"></script>
+<script src="./js/Autolinker.min.js"></script>
+<script>
+var map = new mapboxgl.Map({
+ container: 'map',
+ style: styleJSON,
+ center: [34.89524053955235,31.187319404261586],
+ zoom: 14,
+ bearing: 360.0,
+ attributionControl: false
+});
+map.addControl(new mapboxgl.NavigationControl(), 'top-left');
+map.addControl(new mapboxgl.AttributionControl({
+    customAttribution: '<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://github.com/mapbox/mapbox-gl-js" target="_blank">Mapbox GL JS</a> &middot; <a href="https://qgis.org" target="_blank">QGIS</a>',
+    compact: false
+}));
+var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+
+map.on('click', 'lyr_Afersimplify_0_0', function (e) {
+    var description = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>GUSH_NUM</strong><br />' + (e.features[0].properties['GUSH_NUM'] !== null ? autolinker.link(e.features[0].properties['GUSH_NUM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>GUSH_SUFFI</strong><br />' + (e.features[0].properties['GUSH_SUFFI'] !== null ? autolinker.link(e.features[0].properties['GUSH_SUFFI'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>SHEET_K_ID</strong><br />' + (e.features[0].properties['SHEET_K_ID'] !== null ? autolinker.link(e.features[0].properties['SHEET_K_ID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>SCALE</strong><br />' + (e.features[0].properties['SCALE'] !== null ? autolinker.link(e.features[0].properties['SCALE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>STATUS</strong><br />' + (e.features[0].properties['STATUS'] !== null ? autolinker.link(e.features[0].properties['STATUS'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>STATUS_TEX</strong><br />' + (e.features[0].properties['STATUS_TEX'] !== null ? autolinker.link(e.features[0].properties['STATUS_TEX'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>LOCALITY_I</strong><br />' + (e.features[0].properties['LOCALITY_I'] !== null ? autolinker.link(e.features[0].properties['LOCALITY_I'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>LOCALITY_N</strong><br />' + (e.features[0].properties['LOCALITY_N'] !== null ? autolinker.link(e.features[0].properties['LOCALITY_N'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>REG_MUN_ID</strong><br />' + (e.features[0].properties['REG_MUN_ID'] !== null ? autolinker.link(e.features[0].properties['REG_MUN_ID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>REG_MUN_NA</strong><br />' + (e.features[0].properties['REG_MUN_NA'] !== null ? autolinker.link(e.features[0].properties['REG_MUN_NA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>COUNTY_ID</strong><br />' + (e.features[0].properties['COUNTY_ID'] !== null ? autolinker.link(e.features[0].properties['COUNTY_ID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>COUNTY_NAM</strong><br />' + (e.features[0].properties['COUNTY_NAM'] !== null ? autolinker.link(e.features[0].properties['COUNTY_NAM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>REGION_ID</strong><br />' + (e.features[0].properties['REGION_ID'] !== null ? autolinker.link(e.features[0].properties['REGION_ID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>REGION_NAM</strong><br />' + (e.features[0].properties['REGION_NAM'] !== null ? autolinker.link(e.features[0].properties['REGION_NAM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>SHAPE_AREA</strong><br />' + (e.features[0].properties['SHAPE_AREA'] !== null ? autolinker.link(e.features[0].properties['SHAPE_AREA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>SHAPE_LEN</strong><br />' + (e.features[0].properties['SHAPE_LEN'] !== null ? autolinker.link(e.features[0].properties['SHAPE_LEN'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>'
+
+    new mapboxgl.Popup()
+        .setLngLat(e.lngLat)
+        .setHTML(description)
+        .addTo(map);
+});
+
+// Change the cursor to a pointer when the mouse is over the places layer.
+map.on('mouseenter', 'lyr_Afersimplify_0_0', function () {
+    map.getCanvas().style.cursor = 'pointer';
+});
+
+// Change it back to a pointer when it leaves.
+map.on('mouseleave', 'lyr_Afersimplify_0_0', function () {
+    map.getCanvas().style.cursor = '';
+});
+</script>
+        <script>
+        map.addControl(
+            new mapboxgl.GeolocateControl({
+                positionOptions: {
+                    enableHighAccuracy: true
+                },
+                trackUserLocation: true
+            })
+        );
+        </script>
+    </body>
+</html>
